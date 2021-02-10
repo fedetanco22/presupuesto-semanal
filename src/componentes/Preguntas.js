@@ -1,7 +1,11 @@
 import { useState } from "react";
 import Error from "./Error";
 
-export default function Preguntas() {
+export default function Preguntas({
+  setPresupuesto,
+  setSaldo,
+  setPreguntaGasto,
+}) {
   const [cantidad, setCantidad] = useState(0);
   const [error, setError] = useState(false);
 
@@ -20,6 +24,9 @@ export default function Preguntas() {
 
     //Validacion Acepatada
     setError(false);
+    setPresupuesto(cantidad);
+    setSaldo(cantidad);
+    setPreguntaGasto(false);
   }
 
   return (

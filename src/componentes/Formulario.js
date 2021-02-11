@@ -2,7 +2,7 @@ import { useState } from "react";
 import Error from "./Error";
 import shortid from "shortid";
 
-export default function Formulario() {
+export default function Formulario({ funcionSetGasto, setCrearGasto }) {
   const [gasto, setGasto] = useState("");
   const [cantidad, setCantidad] = useState(0);
   const [error, setError] = useState(false);
@@ -18,15 +18,19 @@ export default function Formulario() {
     setError(false);
 
     // Construir el Gasto
-    const gastosTotales = {
+    const gastosParciales = {
       gasto,
       cantidad,
       id: shortid.generate(),
     };
 
     // Pasar el gasto al com0p principal
+    funcionSetGasto(gastosParciales);
+    setCrearGasto(true);
 
     // resetear el form
+    setGasto("");
+    setCantidad(0);
   }
 
   return (

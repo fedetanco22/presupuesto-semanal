@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 export default function Gasto({ gasto }) {
   return (
     <li className="gastos">
@@ -8,3 +9,7 @@ export default function Gasto({ gasto }) {
     </li>
   );
 }
+
+Gasto.protoTypes = {
+  gastos: PropTypes.object.isRequired,
+};

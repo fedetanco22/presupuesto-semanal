@@ -1,10 +1,11 @@
 import { useState } from "react";
 import Error from "./Error";
 import shortid from "shortid";
+import PropTypes from "prop-types";
 
 export default function Formulario({ funcionSetGasto, setCrearGasto }) {
   const [gasto, setGasto] = useState("");
-  const [cantidad, setCantidad] = useState(0);
+  const [cantidad, setCantidad] = useState("");
   const [error, setError] = useState(false);
 
   function handleSubmit(event) {
@@ -56,6 +57,7 @@ export default function Formulario({ funcionSetGasto, setCrearGasto }) {
         <input
           type="number"
           className="u-full-width"
+          min="0"
           placeholder="Ej. 1000"
           value={cantidad}
           onChange={(e) => setCantidad(parseInt(e.target.value))}
@@ -70,3 +72,8 @@ export default function Formulario({ funcionSetGasto, setCrearGasto }) {
     </form>
   );
 }
+
+Formulario.protoTypes = {
+  funcionSetGasto: PropTypes.func.isRequired,
+  setCrearGasto: PropTypes.func.isRequired,
+};

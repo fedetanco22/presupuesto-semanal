@@ -1,6 +1,7 @@
 import { revisarPresupuesto } from "../helpers";
+import PropTypes from "prop-types";
 
-export default function CalculoPresupuesto({ presupuesto, saldo }) {
+function CalculoPresupuesto({ presupuesto, saldo }) {
   return (
     <>
       <div className="alert alert-primary">Presupuesto: $ {presupuesto}</div>
@@ -10,3 +11,10 @@ export default function CalculoPresupuesto({ presupuesto, saldo }) {
     </>
   );
 }
+
+CalculoPresupuesto.protoTypes = {
+  presupuesto: PropTypes.number.isRequired,
+  saldo: PropTypes.number.isRequired,
+};
+
+export default CalculoPresupuesto;

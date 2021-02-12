@@ -12,3 +12,7 @@ export default function Gastos({ gastos }) {
     </div>
   );
 }
+
+Gastos.protoTypes = {
+  gastos: PropTypes.array.isRequired,
+};
